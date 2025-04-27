@@ -163,5 +163,62 @@ html {
     border: none;
     font-weight: 500;
     margin-bottom: 124px;
+}
 
+
+.about-me {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 44px;
+}
+
+.about-me-content {
+    display: grid;
+    width: 62%;
+    grid-template-columns: 50% 50%;
+    gap: 36px;
+}
+
+.about-me-content-left {
+    display: flex;
+    flex-direction: column;
+    gap: 40px
+}
+
+.about-me-content-left-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px
+}
+
+.about-me-content-left-group ul {
+    list-style-position: inside;
+}
+
+.about-me-content-right {
+    display: flex;
+    flex-direction: column;
+    gap: 40px
+}
+
+.about-me-content-right-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px
+}
+
+.about-me-content-icons {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.about-me-icon {
+    width: 57px;
+    height: 57px;
 }
