@@ -1,23 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portafolio</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
     <div class="hero">
-        <div class="container">
-            <div class="info">
-                <h1>Rafael Vargas</h1>
-                <h2>Backend Developer</h2>
-                <p>Soy una persona apasionada por la tecnología que siempre está dispuesta a tener nuevos desafíos y obtener nuevos conocimientos.
-                </p>
-                <button class="button-about">Sobre mí</button>
-            </div>
+      <div class="container">
+        <div class="info">
+          <h1 class="title">Rafael Vargas</h1>
+          <h2 class="subtitle">Backend Developer</h2>
+          <p class="content-card">
+            Soy una persona apasionada por la tecnología que siempre está
+            dispuesta a tener nuevos desafíos y obtener nuevos conocimientos.
+          </p>
+          <button class="button-about">Sobre mí</button>
         </div>
+      </div>
     </div>
-</body>
+
+    <div class="project">
+      <h1 class="title">Proyectos</h1>
+      <div class="project-cards">
+        <div class="card-horizontal">
+          <div class="card-left-side">
+            <h4 class="title-card">
+              Sistema gestor de la postulación docente
+            </h4>
+            <p class="content-card">
+              El proyecto tenía como finalidad mejorar el proceso de la postulación docente en instituciones educativas. Dirigido principalmente a las universidades. <br>Donde se usaron tecnologías como Angular para el frontend y .NET Core con C# para el backend
+            </p>
+          </div>
+
+          <div class="right-side">
+            <img alt="Imagen proyecto" src="./assets/images/code.jpg" class="project-image"/>
+          </div>
+        </div>
+        <div class="card-horizontal">
+          <div class="card-left-side">
+            <h4 class="title-card">
+              Detector de deepfakes
+            </h4>
+            <p class="content-card">
+              El objetivo de este proyecto era crear una herramienta para ayudar a las personas a detectar contenido fraudulento por medio de una aplicación web. <br>Se entrenó un modelo de inteligencia artificial con <a>Teachable Machine</a> y se creó el frontend con Angular y se clasificaba las imagenes desde un backend hecho con ExpressJS
+            </p>
+          </div>
+
+          <div class="right-side">
+            <img alt="Imagen proyecto" src="./assets/images/DeepfakeDetector.jpg" class="project-image"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
 </html>

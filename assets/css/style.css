@@ -11,6 +11,35 @@ html {
     font-family: 'Inter',sans-serif;
 }
 
+.title {
+    font-size: 60px;
+    line-height: 64px;
+    letter-spacing: 0px;
+}
+
+.subtitle {
+    font-size: 32px;
+    line-height: 26px;
+    letter-spacing: 0px;
+}
+
+
+.title-card {
+    font-size: 26px;
+}
+
+.content-card {
+    font-size: 16;
+}
+
+
+.content {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0px;
+}
+
 
 .hero {
     width: 100%;
@@ -32,25 +61,6 @@ html {
     gap: 1rem;
 }
 
-.info h1 {
-    font-size: 60px;
-    line-height: 64px;
-    letter-spacing: 0px;
-}
-
-.info h2 {
-    font-size: 32px;
-    line-height: 26px;
-    letter-spacing: 0px;
-}
-
-.info p {
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 28px;
-    letter-spacing: 0px;
-}
-
 /* TODO: Aplicar los estilos correspondientes en base al Sistema de diseño */
 .button-about {
     border-radius: 100px;
@@ -59,4 +69,40 @@ html {
     background: transparent;
     font-family: 'Inter', sans-serif;
     font-weight: 500px;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    gap: 28px;
+}
+
+.project-cards {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 60px;
+}
+
+.card-horizontal {
+    display: flex;
+    flex-direction: row;
+    gap: 28px
+}
+
+.project-image {
+    width: 358px;
+    height: 254px;
+    object-fit: contain;
+}
+
+
+.card-left-side {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;  
 }
