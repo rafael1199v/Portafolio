@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
 * {
     padding: 0;
@@ -29,7 +29,7 @@ html {
 }
 
 .content-card {
-    font-size: 16;
+    font-size: 16px;
 }
 
 
@@ -68,7 +68,7 @@ html {
     padding: 18px 32px 18px 32px;
     background: transparent;
     font-family: 'Inter', sans-serif;
-    font-weight: 500px;
+    font-weight: 500;
 }
 
 .project {
@@ -105,4 +105,63 @@ html {
     display: flex;
     flex-direction: column;
     gap: 28px;  
+}
+
+.blog {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #E4E4E4;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+}
+
+.blog .title {
+    margin-top: 112px;
+}
+
+.blog-cards {
+    display: grid;
+    flex-direction: row;
+    width: 59%;
+    gap: 44px;
+    padding: 20px 24px 20px 24px;
+    grid-template-columns: auto auto;
+}
+
+.blog-card {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px 24px 32px 24px;
+    border-radius: 16px;
+}
+
+.blog-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.blog-card-source {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #B6BCBF;
+    font-weight: 700;
+}
+
+
+.blog-button {
+    background-color: white;
+    padding: 20px 111px 20px 111px;
+    border-radius: 80px;
+    border-color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    border: none;
+    font-weight: 500;
+    margin-bottom: 124px;
+
 }
