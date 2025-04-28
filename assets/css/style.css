@@ -11,6 +11,12 @@ html {
     font-family: 'Inter',sans-serif;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+}
+
 .title {
     font-size: 60px;
     line-height: 64px;
@@ -238,8 +244,8 @@ html {
 
 
 .contact-content {
-    display: grid;
-    grid-template-columns: auto auto;
+    display: flex;
+    flex-direction: column;
     gap: 40px;
 }
 
@@ -293,4 +299,46 @@ html {
     justify-content: center;
     align-items: center;
     border-radius: 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: row;
+    gap: 556px;
+    justify-content: center;
+    padding: 41px 276px 20px 275px;
+    font-weight: 700;
+}
+
+.footer-content-links {
+    list-style-position: inside;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer-list-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style: none;
+}
+
+.footer-list-item a {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.footer-list-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.footer-end {
+    background-color: black;
+    color: white;
+    padding-left: 182px;
+    padding-top: 12px;
+    padding-bottom: 11px;
 }
