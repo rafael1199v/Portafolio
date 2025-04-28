@@ -40,6 +40,20 @@ html {
     letter-spacing: 0px;
 }
 
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-form {
+    background: transparent;
+    padding: 20px 24px 20px 24px;
+    border-radius: 30px;
+    border: none;
+    border: 1px solid black;
+}
+
 
 .hero {
     width: 100%;
@@ -183,13 +197,13 @@ html {
     gap: 36px;
 }
 
-.about-me-content-left {
+.about-me-content-left, .about-me-content-right {
     display: flex;
     flex-direction: column;
     gap: 40px
 }
 
-.about-me-content-left-group {
+.about-me-content-left-group, .about-me-content-right-group {
     display: flex;
     flex-direction: column;
     gap: 16px
@@ -197,18 +211,6 @@ html {
 
 .about-me-content-left-group ul {
     list-style-position: inside;
-}
-
-.about-me-content-right {
-    display: flex;
-    flex-direction: column;
-    gap: 40px
-}
-
-.about-me-content-right-group {
-    display: flex;
-    flex-direction: column;
-    gap: 16px
 }
 
 .about-me-content-icons {
@@ -221,4 +223,74 @@ html {
 .about-me-icon {
     width: 57px;
     height: 57px;
+}
+
+
+.contact {
+    width: 100%;
+    height: 100vh;
+    background-color: #E4E4E4;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.contact-content {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 40px;
+}
+
+.contact-content-form form{
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    width: 100%;
+    background-color: white;
+    padding: 18px 39px 18px 39px;
+    border-radius: 20px;
+}
+
+.contact-form-button {
+    background-color: #2F71E5;
+    border: none;
+    padding: 18px 32px 18px 32px;
+    border-radius: 100px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.contact-content-form, .contact-content-social {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.contact-content-header-form, .contact-content-header-social {
+    background-color: white;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.contact-content-header-form {
+    padding: 25px 51px 25px 51px;
+}
+
+.contact-content-header-social {
+    padding: 26px 30px 26px 30px;
+}
+
+.contact-content-social-icons {
+    padding: 43px 68px 43px 68px;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
 }
