@@ -9,6 +9,7 @@
 
 html {
     font-family: 'Inter',sans-serif;
+    scroll-behavior: smooth;
 }
 
 a {
@@ -83,14 +84,21 @@ a {
     gap: 1rem;
 }
 
-/* TODO: Aplicar los estilos correspondientes en base al Sistema de diseño */
 .button-about {
     border-radius: 100px;
     width: fit-content;
+    border: 1px solid black;
     padding: 18px 32px 18px 32px;
     background: transparent;
     font-family: 'Inter', sans-serif;
     font-weight: 500;
+}
+
+
+.button-about:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
 }
 
 .project {
@@ -199,6 +207,13 @@ a {
 }
 
 
+.blog-button:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+
 .about-me {
     width: 100%;
     min-height: 100vh;
@@ -278,13 +293,22 @@ a {
 
 .contact-form-button {
     background-color: #2F71E5;
-    border: none;
+    border: 1px solid #2F71E5;
     padding: 18px 32px 18px 32px;
     border-radius: 100px;
     color: white;
     font-family: 'Inter', sans-serif;
     font-size: 18px;
     font-weight: 400;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.contact-form-button:hover {
+    border: none;
+    border: 1px solid #2F71E5;
+    background-color: transparent;
+    color: #2F71E5;
 }
 
 .contact-content-form, .contact-content-social {
