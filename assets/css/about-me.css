@@ -1,0 +1,28 @@
+.about-me {
+    width: 80%;
+    background-color: #A0C878;
+    border-radius: 20px;
+    padding: 1.875rem;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    gap: 2.5rem;
+}
+
+.about-me__title {
+    font-size: 3.75rem;
+    font-weight: 700;
+}
+
+.about-me__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.about-me__paragraph {
+    font-weight: 400;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+
+}
