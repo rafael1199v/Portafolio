@@ -1,0 +1,67 @@
+.profile {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+    color: #FFFFFF;
+    width: 80%;
+    justify-content: center;
+}
+
+.profile__info {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.profile__education-title, .profile__hobbies-title, .profile__skills-title {
+    font-size: 3.75rem;
+    font-weight: 700;
+}
+
+.profile__education, .profile__hobbies, .profile__skills {
+    background-color: #A0C878;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    width: 35rem;
+}
+
+.profile__education-list, .profile__hobbies-list {
+    list-style-position: inside;
+}
+
+
+.profile__skills {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile__skills-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-left: 1.875rem;
+    padding-right: 1.875rem;
+}
+
+.profile__skills-group-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+
+.profile__skills-list {
+    display: flex;
+    flex-direction: row;
+    gap: 2.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.profile__skills-icon {
+    width: 1.875rem;
+    height: 1.875rem;
+}
