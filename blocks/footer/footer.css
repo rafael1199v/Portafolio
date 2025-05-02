@@ -1,0 +1,46 @@
+.footer {
+    width: 100%;
+    color: #FFFFFF;
+}
+
+.footer__info {
+    background-color: #79965B;
+}
+
+.footer__bottom {
+    padding: 0.625rem 9rem;
+    background-color: #000000;
+
+}
+
+.footer__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1.25rem 9rem;
+}
+
+.footer__links-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.footer__links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.footer__links-item {
+    display: flex;
+    flex-direction: row;
+    gap: 1.875rem;
+    align-items: center;
+}
+
+
+.footer__links-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}

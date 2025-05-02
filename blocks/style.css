@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('nav.css');
-@import url('hero.css');
-@import url('projects.css');
-@import url('blog.css');
-@import url('about-me.css');
-@import url('profile.css');
+@import url('nav/nav.css');
+@import url('hero/hero.css');
+@import url('projects/projects.css');
+@import url('blog/blog.css');
+@import url('about-me/about-me.css');
+@import url('profile/profile.css');
+@import url('footer/footer.css');
 
 * {
     padding: 0;
