@@ -80,4 +80,26 @@
     width: 37.4%;
 }
 
+@media (max-width: 992px) {
+    .projects__card-button {
+        width: 50%;
+        margin-bottom: 0.5rem;
+    }
 
+    .projects__cards {
+        height: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .projects__cards {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .projects__title {
+        font-size: 1.875rem;
+       
+    }
+}

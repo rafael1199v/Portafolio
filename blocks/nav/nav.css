@@ -42,3 +42,10 @@
     height: 1.25rem;
     color: white;
 }
+
+
+@media (max-width: 768px) {
+    .nav__list {
+        display: none;
+    }
+}

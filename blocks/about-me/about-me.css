@@ -26,3 +26,29 @@
     line-height: 1.75rem;
 
 }
+
+
+@media (max-width: 992px) {
+
+    .about-me {
+        flex-direction: column;
+        gap: 5rem;
+
+    }
+
+    .about-me__image {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    
+    .about-me__title {
+        font-size: 1.875rem;
+       text-align: center;
+    }
+
+    .about-me__paragraph {
+        font-size: 1rem;
+    }
+}

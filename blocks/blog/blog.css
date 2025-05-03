@@ -65,3 +65,38 @@
     color: #A0C878;
     font-size: 0.8125rem;
 }
+
+
+@media (max-width: 992px) {
+    .blog__cards {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 520px) {
+    .blog__card {
+        flex-direction: column;
+        width: 80%;
+        align-items: center;
+    }
+
+    .blog__card-content {
+        text-align: center;
+    }
+
+    .blog__card-paragraph {
+        width: 100%;
+    }
+
+    .blog__card-image {
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .blog__title {
+        font-size: 1.875rem;
+       
+    }
+}

@@ -99,3 +99,39 @@
     background-color: #A0C878;
     border-radius: 10px;
 }
+
+
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .hero__content {
+        text-align: center;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .hero__title {
+        font-size: 1.875rem;
+    }
+
+    .hero__subtitle {
+        font-size: 0.8125rem
+    }
+
+    .hero__paragraph {
+        font-size: 0.625rem;
+    }
+
+}
+
+@media (max-width: 420px) {
+    .hero__form {
+        min-width: auto;
+        width: 100%;
+    }
+}
