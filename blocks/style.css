@@ -27,3 +27,9 @@ body {
     background-color: #FFFDF6;
     padding-top: 2.5rem;
 }
+
+
+a {
+    color: black;
+    text-decoration: none;
+}
