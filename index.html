@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portafolio</title>
     <link rel="stylesheet" href="./blocks/style.css" />
+    <script src="index.js" type="module" defer></script>
   </head>
   <body>
     <div class="nav">
@@ -16,7 +17,11 @@
         <li class="nav__item"><a href="#blog-id">Blog</a></li>
       </ul>
 
-      <a class="nav__button" href="https://github.com/rafael1199v" target="_blank">
+      <a
+        class="nav__button"
+        href="https://github.com/rafael1199v"
+        target="_blank"
+      >
         Github
         <img src="assets/svg/github-logo.svg" alt="Github" class="nav__icon" />
       </a>
@@ -68,88 +73,7 @@
 
     <section class="projects" id="projects-id">
       <h1 class="projects__title">Proyectos</h1>
-      <div class="projects__cards">
-        <div class="projects__card">
-          <img
-            src="assets/images/code.jpg"
-            class="projects__card-image"
-            alt="Project"
-          />
-          <div class="projects__card-content">
-            <h4 class="projects__card-title">Detector de deepfakes</h4>
-            <p class="projects__card-paragraph">
-              Desde que leí el influyente libro de Richard Louv, "El último niño
-              en el bosque", la idea de tener un "lugar de reflexión" especial
-              para mi se me ha quedado grabada
-            </p>
-          </div>
-          <a
-            class="projects__card-button"
-            href="https://github.com/rafael1199v"
-            target="_blank"
-          >
-            Github
-            <img
-              src="assets/svg/github-logo.svg"
-              alt="Github"
-              class="nav__icon"
-            />
-          </a>
-        </div>
-        <div class="projects__card">
-          <img
-            src="assets/images/code.jpg"
-            class="projects__card-image"
-            alt="Project"
-          />
-          <div class="projects__card-content">
-            <h4 class="projects__card-title">Detector de deepfakes</h4>
-            <p class="projects__card-paragraph">
-              Desde que leí el influyente libro de Richard Louv, "El último niño
-              en el bosque", la idea de tener un "lugar de reflexión" especial
-              para mi se me ha quedado grabada
-            </p>
-          </div>
-          <a
-            class="projects__card-button"
-            href="https://github.com/rafael1199v"
-            target="_blank"
-          >
-            Github
-            <img
-              src="assets/svg/github-logo.svg"
-              alt="Github"
-              class="nav__icon"
-            />
-          </a>
-        </div>
-        <div class="projects__card">
-          <img
-            src="assets/images/code.jpg"
-            class="projects__card-image"
-            alt="Project"
-          />
-          <div class="projects__card-content">
-            <h4 class="projects__card-title">Detector de deepfakes</h4>
-            <p class="projects__card-paragraph">
-              Desde que leí el influyente libro de Richard Louv, "El último niño
-              en el bosque", la idea de tener un "lugar de reflexión" especial
-              para mi se me ha quedado grabada
-            </p>
-          </div>
-          <a
-            class="projects__card-button"
-            href="https://github.com/rafael1199v"
-            target="_blank"
-          >
-            Github
-            <img
-              src="assets/svg/github-logo.svg"
-              alt="Github"
-              class="nav__icon"
-            />
-          </a>
-        </div>
+      <div class="projects__cards" id="project-cards"> 
       </div>
     </section>
 
@@ -331,7 +255,10 @@
                     Github
                   </div>
                 </a>
-                <a href="https://www.linkedin.com/in/rafael-andres-vargas/" target="_blank">
+                <a
+                  href="https://www.linkedin.com/in/rafael-andres-vargas/"
+                  target="_blank"
+                >
                   <div class="footer__links-item">
                     <img
                       src="assets/svg/linkedin-logo-white.svg"
@@ -348,5 +275,47 @@
       </div>
       <div class="footer__bottom">Portafolio 2025</div>
     </footer>
+
+    <template id="project-card-template">
+      <div class="projects__card">
+        <div class="projects__card-save">
+          <svg viewBox="0 0 24 24" fill="#0000000" xmlns="http://www.w3.org/2000/svg" class="projects__save-icon">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+            <g id="SVGRepo_iconCarrier"> <path fill-rule="evenodd" clip-rule="evenodd" d="M6.75 6L7.5 5.25H16.5L17.25 6V19.3162L12 16.2051L6.75 19.3162V6ZM8.25 6.75V16.6838L12 14.4615L15.75 16.6838V6.75H8.25Z"/> </g>
+          </svg>
+        </div>
+
+        <div class="projects__card-heart">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="projects__heart-icon">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 6.00019C10.2006 3.90317 7.19377 3.2551 4.93923 5.17534C2.68468 7.09558 2.36727 10.3061 4.13778 12.5772C5.60984 14.4654 10.0648 18.4479 11.5249 19.7369C11.6882 19.8811 11.7699 19.9532 11.8652 19.9815C11.9483 20.0062 12.0393 20.0062 12.1225 19.9815C12.2178 19.9532 12.2994 19.8811 12.4628 19.7369C13.9229 18.4479 18.3778 14.4654 19.8499 12.5772C21.6204 10.3061 21.3417 7.07538 19.0484 5.17534C16.7551 3.2753 13.7994 3.90317 12 6.00019Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p class="projects__card-heart-content"></p>
+        </div>
+        <img
+          src=""
+          class="projects__card-image"
+          alt="Project"
+        />
+        <div class="projects__card-content">
+          <h4 class="projects__card-title"></h4>
+          <p class="projects__card-paragraph">
+           
+          </p>
+        </div>
+        <a
+          class="projects__card-button"
+          href=""
+          target="_blank"
+        >
+          Github
+          <img
+            src="assets/svg/github-logo.svg"
+            alt="Github"
+            class="nav__icon"
+          />
+        </a>
+      </div>
+    </template>
   </body>
 </html>

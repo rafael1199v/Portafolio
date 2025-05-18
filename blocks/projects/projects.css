@@ -36,6 +36,7 @@
     border-radius: 16px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
     overflow: hidden;
+    position: relative;
 }
 
 .projects__card-image {
@@ -79,6 +80,58 @@
     box-sizing: border-box;
     width: 37.4%;
 }
+
+
+.projects__card-save {
+    background-color: rgb(255, 255, 255);
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.projects__card-heart {
+    background-color: rgb(255, 255, 255);
+    width: 60px;
+    height: 35px;
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+}
+
+
+.projects__save-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+}
+
+.projects__save-icon--save {
+    fill: white;
+    background-color: #A0C878;
+}
+
+.projects__heart-icon { 
+    width: 25px;
+    height: 25px;
+}
+
+.projects__heart-icon--liked {
+    fill: red;
+}
+
 
 @media (max-width: 992px) {
     .projects__card-button {
