@@ -1,5 +1,6 @@
 import APIProject from "./services/apiProject.js";
-let projects = [];
+import ProjectList from "./services/ProjectList.js";
+
 globalThis.DOM = {};
 
 async function fetchProjects() {
@@ -11,25 +12,27 @@ async function fetchProjects() {
 
 function addListeners(card, saveIcon, heartIcon, project) {
     saveIcon.parentElement.addEventListener("click", () => {
-        if(saveIcon.classList.contains("projects__save-icon--save")) {
-            saveIcon.classList.remove("projects__save-icon--save");
-        }
+        const cardId = saveIcon.parentElement.parentElement.id.split('-')[2];
+        
+        if(ProjectList.getInstance().find(cardId).save == "true")
+            ProjectList.getInstance().unsaveProject(cardId);
         else {
-            saveIcon.classList.add("projects__save-icon--save");
+            ProjectList.getInstance().saveProject(cardId);
         }
+
+        renderProjects(ProjectList.getInstance().projects);
     });
 
     heartIcon.parentElement.addEventListener("click", () => {
-        let likesCounter = card.querySelector(".projects__card-heart-content");
-
-        if(heartIcon.classList.contains("projects__heart-icon--liked")) {
-            heartIcon.classList.remove("projects__heart-icon--liked");
-            likesCounter.textContent = project.likes;
+        const cardId = heartIcon.parentElement.parentElement.id.split('-')[2];
+        if(ProjectList.getInstance().find(cardId).like == "false") {
+            ProjectList.getInstance().addLike(cardId);
         }
         else {
-            heartIcon.classList.add("projects__heart-icon--liked");
-            likesCounter.textContent = Number(project.likes) + 1;
+            ProjectList.getInstance().removeLike(cardId);
         }
+        
+        renderProjects(ProjectList.getInstance().projects);
     });
 
 }
@@ -57,6 +60,13 @@ function renderProjects(projects) {
         link.href = project.githubURL;
         likesCounter.textContent = project.likes;
 
+
+        if(project.save == "true")
+            saveIcon.classList.add("projects__save-icon--save")
+
+        if(project.like == "true")
+            heartIcon.classList.add("projects__heart-icon--liked")
+
         addListeners(card, saveIcon, heartIcon, project);
         fragment.appendChild(card);
     }
@@ -67,11 +77,12 @@ function renderProjects(projects) {
 
 
 window.addEventListener("DOMContentLoaded", async () => {
-    projects = await fetchProjects();
-    DOM.projectCards = document.getElementById("project-cards");
-    renderProjects(projects);
+    let projects = await fetchProjects();
+    ProjectList.getInstance().setProjects(projects);
     
-})
+    DOM.projectCards = document.getElementById("project-cards");
+    renderProjects(ProjectList.getInstance().projects);
+});
 
 
 

@@ -6,7 +6,8 @@
         "content": "Desde que leí el influyente libro de Richard Louv, \"El último niño en el bosque\", la idea de tener un \"lugar de reflexión\" especial para mi se me ha quedado grabada",
         "githubURL": "https://github.com/rafael1199v",
         "likes": "10",
-        "save": "false"
+        "save": "false",
+        "like": "false"
     },
     {
         "id": 2,
@@ -15,7 +16,8 @@
         "content": "Desde que leí el influyente libro de Richard Louv, \"El último niño en el bosque\", la idea de tener un \"lugar de reflexión\" especial para mi se me ha quedado grabada",
         "githubURL": "https://github.com/rafael1199v",
         "likes": "22",
-        "save:": "false"
+        "save:": "false",
+        "like": "false"
     },
     {
         "id": 3,
@@ -24,6 +26,7 @@
         "content": "Desde que leí el influyente libro de Richard Louv, \"El último niño en el bosque\", la idea de tener un \"lugar de reflexión\" especial para mi se me ha quedado grabada",
         "githubURL": "https://github.com/rafael1199v",
         "likes": "0",
-        "save": "false"
+        "save": "false",
+        "like": "false"
     }
 ]
