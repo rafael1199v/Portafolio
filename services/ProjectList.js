@@ -1,9 +1,18 @@
 class ProjectList {
 
     #projects = [];
+    #limitedView = true;
 
     get projects() {
+
+        if(this.#limitedView)
+            return this.#projects.slice(0, 3);
+
         return this.#projects;
+    }
+
+    get limitedView() {
+        return this.#limitedView;
     }
 
     static instance = null;
@@ -54,6 +63,10 @@ class ProjectList {
 
     setProjects(projects) {
         this.#projects = projects;
+    }
+
+    seeMore(){
+        this.#limitedView = false;
     }
 
 }

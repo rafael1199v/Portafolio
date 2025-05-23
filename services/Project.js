@@ -2,9 +2,11 @@ import Page from "./Page.js";
 import ProjectList from "./ProjectList.js";
 
 class Project extends Page {
+
     render(mainElement) {
 
         const projectCards = this.content.querySelector('.projects__cards');
+        const seeMoreButton = this.content.querySelector('.projects__button')
         projectCards.innerHTML = "";
 
         const fragment = new DocumentFragment();
@@ -35,37 +37,51 @@ class Project extends Page {
             if(project.like == "true")
                 heartIcon.classList.add("projects__heart-icon--liked")
 
-            saveIcon.parentElement.addEventListener("click", () => {
-                const cardId = saveIcon.parentElement.parentElement.id.split('-')[2];
-                
-                if(ProjectList.getInstance().find(cardId).save == "true")
-                    ProjectList.getInstance().unsaveProject(cardId);
-                else {
-                    ProjectList.getInstance().saveProject(cardId);
-                }
+            this.addListeners(heartIcon, saveIcon, mainElement);
 
-                this.render(mainElement);
-            });
-
-            heartIcon.parentElement.addEventListener("click", () => {
-                const cardId = heartIcon.parentElement.parentElement.id.split('-')[2];
-                if(ProjectList.getInstance().find(cardId).like == "false") {
-                    ProjectList.getInstance().addLike(cardId);
-                }
-                else {
-                    ProjectList.getInstance().removeLike(cardId);
-                }
-                
-                this.render(mainElement);
-            });
-
-            
             fragment.appendChild(card);
         }
+
+        if(!ProjectList.getInstance().limitedView)
+            seeMoreButton.hidden = true;
+
+        seeMoreButton.addEventListener("click", () => {
+            ProjectList.getInstance().seeMore();
+            this.render(mainElement);
+        });
 
         projectCards.appendChild(fragment);
      
         super.render(mainElement);
+    }
+
+
+    addListeners(heartIcon, saveIcon, mainElement){
+        saveIcon.parentElement.addEventListener("click", () => {
+            const cardId = saveIcon.parentElement.parentElement.id.split('-')[2];
+            
+            if(ProjectList.getInstance().find(cardId).save == "true")
+                ProjectList.getInstance().unsaveProject(cardId);
+            else {
+                ProjectList.getInstance().saveProject(cardId);
+            }
+
+            this.render(mainElement);
+        });
+
+        heartIcon.parentElement.addEventListener("click", () => {
+            const cardId = heartIcon.parentElement.parentElement.id.split('-')[2];
+            if(ProjectList.getInstance().find(cardId).like == "false") {
+                ProjectList.getInstance().addLike(cardId);
+            }
+            else {
+                ProjectList.getInstance().removeLike(cardId);
+            }
+            
+            this.render(mainElement);
+        });
+
+            
     }
 
 };

@@ -2,7 +2,6 @@ import Home from './Home.js'
 import Blog from './Blog.js';
 import Project from './Project.js';
 import AboutMe from './AboutMe.js'
-import NotFound from './NotFound.js'
 
 const Router = {
     init() {
@@ -52,12 +51,13 @@ const Router = {
                 pageElement = new Blog(blockElement);
                 break;
             default:
-                blockElement = document.createElement("h1");
-                pageElement = new NotFound(blockElement);
                 break;
         }
 
         pageElement.render(mainElement);
+        
+        window.scrollX = 0;
+        window.scrollY = 0;
     }
 }
 
