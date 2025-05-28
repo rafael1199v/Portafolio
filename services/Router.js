@@ -1,8 +1,3 @@
-import Home from './Home.js'
-import Blog from './Blog.js';
-import Project from './Project.js';
-import AboutMe from './AboutMe.js'
-
 const Router = {
     init() {
         const links = document.querySelectorAll(".nav__item a");
@@ -35,26 +30,22 @@ const Router = {
 
         switch(route){
             case '/':
-                blockElement = document.getElementById('hero-template').content.cloneNode(true).firstElementChild;
-                pageElement = new Home(blockElement);
+                pageElement = document.createElement("home-page");
                 break;
             case '/about-me':
-                blockElement = document.getElementById('about-me-template').content.cloneNode(true).firstElementChild;
-                pageElement = new AboutMe(blockElement);
+                pageElement = document.createElement("about-me-page");
                 break;
             case '/projects':
-                blockElement = document.getElementById('projects-template').content.cloneNode(true).firstElementChild;
-                pageElement = new Project(blockElement);
+                pageElement = document.createElement("project-page");
                 break;
             case '/blogs':
-                blockElement = document.getElementById('blog-template').content.cloneNode(true).firstElementChild;
-                pageElement = new Blog(blockElement);
+                pageElement = document.createElement("blog-page");
                 break;
             default:
                 break;
         }
 
-        pageElement.render(mainElement);
+        mainElement.appendChild(pageElement);
         
         window.scrollX = 0;
         window.scrollY = 0;

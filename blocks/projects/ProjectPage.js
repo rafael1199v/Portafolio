@@ -1,12 +1,25 @@
-import Page from "./Page.js";
-import ProjectList from "./ProjectList.js";
+import BaseHTMLElement from "../base/BaseHTMLElement.js";
+import ProjectList from "../../services/ProjectList.js";
 
-class Project extends Page {
 
-    render(mainElement) {
+export default class ProjectPage extends BaseHTMLElement {
 
-        const projectCards = this.content.querySelector('.projects__cards');
-        const seeMoreButton = this.content.querySelector('.projects__button')
+    constructor() {
+        super();
+    }
+
+    async connectedCallback() {
+        const blockElement = document.getElementById('projects-template').content.cloneNode(true).firstElementChild;
+        this.shadowRoot.appendChild(blockElement);
+        await this.loadCSS("/blocks/projects/projects.css");
+
+        this.render();
+    }
+
+    render() {
+
+        const projectCards = this.shadowRoot.querySelector('.projects__cards');
+        const seeMoreButton = this.shadowRoot.querySelector('.projects__button')
         projectCards.innerHTML = "";
 
         const fragment = new DocumentFragment();
@@ -37,7 +50,7 @@ class Project extends Page {
             if(project.like == "true")
                 heartIcon.classList.add("projects__heart-icon--liked")
 
-            this.addListeners(heartIcon, saveIcon, mainElement);
+            this.addListeners(heartIcon, saveIcon);
 
             fragment.appendChild(card);
         }
@@ -47,16 +60,14 @@ class Project extends Page {
 
         seeMoreButton.addEventListener("click", () => {
             ProjectList.getInstance().seeMore();
-            this.render(mainElement);
+            this.render();
         });
 
         projectCards.appendChild(fragment);
-     
-        super.render(mainElement);
     }
 
 
-    addListeners(heartIcon, saveIcon, mainElement){
+    addListeners(heartIcon, saveIcon){
         saveIcon.parentElement.addEventListener("click", () => {
             const cardId = saveIcon.parentElement.parentElement.id.split('-')[2];
             
@@ -66,7 +77,7 @@ class Project extends Page {
                 ProjectList.getInstance().saveProject(cardId);
             }
 
-            this.render(mainElement);
+            this.render();
         });
 
         heartIcon.parentElement.addEventListener("click", () => {
@@ -78,12 +89,13 @@ class Project extends Page {
                 ProjectList.getInstance().removeLike(cardId);
             }
             
-            this.render(mainElement);
+            this.render();
         });
 
             
     }
+}
 
-};
 
-export default Project;
+
+customElements.define("project-page", ProjectPage);
