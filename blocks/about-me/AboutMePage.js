@@ -34,7 +34,6 @@ export default class AboutMePage extends BaseHTMLElement {
                     hasChanges = true;
                 }
             }
-
             
            if(hasChanges) {
                 ignoreMutation = true;
