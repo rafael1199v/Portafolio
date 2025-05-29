@@ -1,3 +1,5 @@
+import { observerMixin } from "./Mixins.js";
+
 class ProjectList {
 
     #projects = [];
@@ -8,6 +10,10 @@ class ProjectList {
         if(this.#limitedView)
             return this.#projects.slice(0, 3);
 
+        return this.#projects;
+    }
+
+    get allProjects() {
         return this.#projects;
     }
 
@@ -37,28 +43,38 @@ class ProjectList {
         const project = this.find(id);
         project.likes = Number(project.likes) + 1;
         project.like = "true";
+
+        this.notify();
     }
 
     removeLike(id) {
         const project = this.find(id);
         project.likes = Number(project.likes) - 1;
         project.like = "false";        
+        
+        this.notify();
     }
 
 
     saveProject(id) {
         const project = this.find(id);
         project.save = "true";   
+
+        this.notify();
     }
 
     unsaveProject(id) {
         const project = this.find(id);
         project.save = "false";
+
+        this.notify();
     }
 
 
     addProject(project) {
         this.#projects.push(project);
+
+        this.notify();
     }
 
     setProjects(projects) {
@@ -70,5 +86,8 @@ class ProjectList {
     }
 
 }
+
+
+Object.assign(ProjectList.prototype, observerMixin);
 
 export default ProjectList;
