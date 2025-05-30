@@ -74,10 +74,30 @@ export default class SavePage extends BaseHTMLElement {
             const containerCard = element.querySelector(".save-page__card-container");
             containerCard.classList.remove("save-page__card-container--hidden");
 
-            
+            let templateSave = document.getElementById('project-save-card-template');
+            let cardSave = templateSave.content.cloneNode(true).firstElementChild;
 
+            let imgSave = cardSave.querySelector(".projects__card-image");
+            let titleSave = cardSave.querySelector(".projects__card-title");
+            let paragraphSave = cardSave.querySelector(".projects__card-paragraph");
+            let linkSave = cardSave.querySelector(".projects__card-button");
+
+            const saveItem = saveList.searchItem;
+
+
+            const saveContainer = element.querySelector(".save-page__card-item");
+
+            imgSave.src = saveItem.imageURL;
+            titleSave.textContent = saveItem.title;
+            paragraphSave.textContent = saveItem.content;
+            linkSave.href = saveItem.githubURL;
+
+            saveContainer.appendChild(cardSave);
+        }
+        else {
 
         }
+ 
         
         console.log(saveList.projects);
 
