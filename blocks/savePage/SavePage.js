@@ -84,7 +84,6 @@ export default class SavePage extends BaseHTMLElement {
 
             const saveItem = saveList.searchItem;
 
-
             const saveContainer = element.querySelector(".save-page__card-item");
 
             imgSave.src = saveItem.imageURL;

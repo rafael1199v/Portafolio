@@ -27,7 +27,17 @@ export default class SearchBar extends BaseHTMLElement {
                 }));
             }
             
+            
         });
+
+
+        document.addEventListener("keydown", function(event) {
+            if(event.ctrlKey && event.key === "k") {
+                event.preventDefault();
+                const cmd = new Commnad(COMMANDS.FOCUS_SEARCH, searchBar);
+                CommandExecutor.execute(cmd);
+            }
+        })
 
     }
 

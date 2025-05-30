@@ -13,7 +13,8 @@ export class Commnad {
 export const COMMANDS = {
     SAVE: "save",
     UNSAVE: "unsave",
-    SEARCH: "search"
+    SEARCH: "search",
+    FOCUS_SEARCH: "focus_search"
 }
 
 
@@ -33,6 +34,10 @@ export const CommandExecutor = {
             case COMMANDS.SEARCH:
                 const searched = saveList.findByTitle(command.args);
                 saveList.setSearchItem(searched);
+                break;
+            case COMMANDS.FOCUS_SEARCH:
+                console.log(command.args);
+                command.args.focus();
                 break;
             default:
                 throw new Error("Comando no reconocido");
