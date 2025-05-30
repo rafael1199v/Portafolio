@@ -41,6 +41,8 @@ const Router = {
             case '/blogs':
                 pageElement = document.createElement("blog-page");
                 break;
+            case '/save':
+                pageElement = document.createElement("save-page");
             default:
                 break;
         }

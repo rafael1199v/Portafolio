@@ -15,6 +15,7 @@
         <li class="nav__item"><a href="/about-me">Sobre mi</a></li>
         <li class="nav__item"><a href="/projects">Proyectos</a></li>
         <li class="nav__item"><a href="/blogs">Blog</a></li>
+        <li class="nav__item"><a href="/save">Guardados</a></li>
       </ul>
 
       <a
@@ -314,6 +315,55 @@
           </div>
         </div>
       </section>
+    </template>
+
+    <template id="save-page-id">
+      <div class="save-page">
+        <h1>Save Projects</h1>
+        <search-bar></search-bar>
+        <div class="save-page__card-container save-page__card-container--hidden">
+          <h3>Items encontrado</h3>
+          <div class="save-page__card-item">
+
+          </div>
+        </div>
+        <div class="save-page__cards"></div>
+        
+      </div>
+    </template>
+
+
+    <template id="project-save-card-template">
+      <div class="projects__card">
+        <img
+          src=""
+          class="projects__card-image"
+          alt="Project"
+        />
+        <div class="projects__card-content">
+          <h4 class="projects__card-title"></h4>
+          <p class="projects__card-paragraph">
+           
+          </p>
+        </div>
+        <a
+          class="projects__card-button"
+          href=""
+          target="_blank"
+        >
+          Github
+          <img
+            src="assets/svg/github-logo.svg"
+            alt="Github"
+            class="nav__icon"
+          />
+        </a>
+      </div>
+    </template>
+
+
+    <template id="search-bar-template">
+      <input type="text" class="search-bar">
     </template>
   </body>
 </html>

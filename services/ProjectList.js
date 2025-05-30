@@ -1,4 +1,9 @@
 import { observerMixin } from "./Mixins.js";
+import { saveMixing } from "./Mixins.js";
+import { unsaveMixing } from "./Mixins.js";
+import { Commnad } from "./SaveCommand.js";
+import { COMMANDS } from "./SaveCommand.js";
+import { CommandExecutor } from "./SaveCommand.js";
 
 class ProjectList {
 
@@ -61,13 +66,21 @@ class ProjectList {
         project.save = "true";   
 
         this.notify();
+        const command = new Commnad(COMMANDS.SAVE, project);
+        CommandExecutor.execute(command);
+        //this.notifySave(project);
     }
 
     unsaveProject(id) {
         const project = this.find(id);
         project.save = "false";
 
+
+        const command = new Commnad(COMMANDS.UNSAVE, project);
+        CommandExecutor.execute(command);
+
         this.notify();
+        //this.notifyUnsave(id);
     }
 
 
@@ -89,5 +102,7 @@ class ProjectList {
 
 
 Object.assign(ProjectList.prototype, observerMixin);
+//Object.assign(ProjectList.prototype, saveMixing);
+//Object.assign(ProjectList.prototype, unsaveMixing);
 
 export default ProjectList;
