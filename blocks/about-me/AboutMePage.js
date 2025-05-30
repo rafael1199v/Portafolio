@@ -11,45 +11,68 @@ export default class AboutMePage extends BaseHTMLElement {
         const profile = document.getElementById('profile-template').content.cloneNode(true).firstElementChild;
 
         const paragraph = aboutMe.querySelector(".about-me__paragraph");
-        let ignoreMutation = false;
+        const preview  = aboutMe.querySelector(".about-me__paragraph-view");
+
+       
+       
+        preview.addEventListener("click", (event) => {
+            paragraph.classList.remove("about-me__paragraph--hidden");
+            preview.classList.add("about-me__paragraph--hidden");
+        })
+
+        paragraph.addEventListener("blur", (event) => {
+            paragraph.classList.add("about-me__paragraph--hidden");
+            preview.classList.remove("about-me__paragraph--hidden");
+        })
+
+
+        
 
         const mutationObserver = new MutationObserver((entries) => {
-            if (ignoreMutation) return;
 
-            const target = entries[0].target;
-            const text = target.innerText?.trim() ?? "";
+            const target = paragraph.innerText;
+            const data = target;
+            const lines = data.split("\n").filter(line => line != "");
+    
+            for(let i = 0; i < lines.length; i++){
+                const words = lines[i].split(" ");
 
-            const words = text.split(/\s+/);
-            const newList = [];
-            let hasChanges = false;
+                if(words.length == 0)
+                    continue;
 
-            console.log(words, target);
+                const tag = Markdown[words[0]];
+                
+                if(!tag)
+                    continue;
 
-            for (let i = 0; i < words.length; i++) {
-                const tag = Markdown[words[i]];
-                if (!tag) {
-                    newList.push(words[i]);
-                } else {
-                    newList.push(`<${tag}>Heading h1</${tag}>`);
-                    hasChanges = true;
+                let newLine;
+
+                const newLineContent = words.slice(1).join(" ");
+                
+                if(tag == "ul") {
+                    newLine = `<${tag}><li class="about-me__list-style--inside">${newLineContent}</li></${tag}>`
                 }
+                else {
+                    newLine = `<${tag}>${newLineContent}</${tag}>`;
+                }
+               
+                lines[i] = newLine;
+            }
+
+            
+            if(lines.length === 0){
+                preview.innerHTML = "Add some text to my description here.";
+            }
+            else {
+                preview.innerHTML = lines.join("\n");
             }
             
-           if(hasChanges) {
-                ignoreMutation = true;
-                console.log("Lista nueva",newList)
-                paragraph.innerHTML = newList.join(" ");
-                console.log("Cambios");
-                ignoreMutation = false;
-           }    
-          
-    })
+        })
 
         mutationObserver.observe(paragraph, {
             characterData: true,
             subtree: true,
-            characterDataOldValue: true,
-            childList: true
+            characterDataOldValue: true
         });
 
         const fragment = new DocumentFragment();

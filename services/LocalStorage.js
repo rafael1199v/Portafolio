@@ -6,7 +6,6 @@ const projectList = ProjectList.getInstance();
 const LocalStorage = {
     saveProjects () {
         localStorage.setItem("projects", JSON.stringify(projectList.allProjects));
-        console.log(localStorage.getItem("projects"));
     },
 
 
