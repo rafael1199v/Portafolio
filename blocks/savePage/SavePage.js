@@ -7,55 +7,21 @@ export default class SavePage extends BaseHTMLElement {
 
     constructor() {
         super();
+
+
+        this.firstRender = true;
     }
 
 
 
     async connectedCallback() {
-        const template = document.getElementById("save-page-id");
-        const element = template.content.cloneNode(true).firstElementChild;
-        await this.loadCSS("/blocks/savePage/SavePage.css");
-
-        const saveList = SaveItemList.getInstance();
-
-        const containerCard = element.querySelector(".save-page__card-container");
-        let cardContainerTitle = containerCard.querySelector(".save-page__card-title-search")
-        cardContainerTitle.hidden = true;
-        
-        console.log(saveList.projects);
-        console.log(saveList.searchItem);
-        
-        const fragment = new DocumentFragment();
-        for(let saveItem of saveList.projects) {
-            let template = document.getElementById('project-save-card-template');
-            let card = template.content.cloneNode(true).firstElementChild;
-          
-            let img = card.querySelector(".projects__card-image");
-            let title = card.querySelector(".projects__card-title");
-            let paragraph = card.querySelector(".projects__card-paragraph");
-            let link = card.querySelector(".projects__card-button");
-
-            img.src = saveItem.imageURL;
-            title.textContent = saveItem.title;
-            paragraph.textContent = saveItem.content;
-            link.href = saveItem.githubURL;
-
-
-            fragment.appendChild(card);
-        }
-
-
-        console.log(element);
-        
-        const container = element.querySelector(".save-page__cards");
-        container.appendChild(fragment);
+       
+        this.render();
 
         this.addEventListener("search", (event) => {
-            cardContainerTitle.hidden = false;
+            this.firstRender = false;
             this.render();  
-        })
-
-        this.shadowRoot.appendChild(element);
+        });
         
     }
 
@@ -66,6 +32,10 @@ export default class SavePage extends BaseHTMLElement {
         const template = document.getElementById("save-page-id");
         const element = template.content.cloneNode(true).firstElementChild;
         await this.loadCSS("/blocks/savePage/SavePage.css");
+
+
+        let cardContainerTitle = element.querySelector(".save-page__card-title-search")
+        cardContainerTitle.hidden = this.firstRender;
 
         const saveList = SaveItemList.getInstance();
 
