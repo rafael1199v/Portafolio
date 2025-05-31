@@ -57,7 +57,9 @@ export default class ProjectPage extends BaseHTMLElement {
                     || event.target.classList.contains("projects__card-heart-content") 
                     || event.target.classList.contains("projects__heart-icon") 
                     || event.target.classList.contains("projects__card-heart")
-                    || event.target.classList.contains("projects__card-save")) {
+                    || event.target.classList.contains("projects__card-save")
+                    || event.target.classList.contains("projects__card-button")
+                    || event.target.classList.contains("nav__icon")) {
                     return;
                 }
 

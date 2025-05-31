@@ -94,9 +94,6 @@ export default class SavePage extends BaseHTMLElement {
             cardContainerTitle.textContent = "No hay resultados para tu búsqueda";
         }
  
-        
-        console.log(saveList.projects);
-
         const fragment = new DocumentFragment();
         for(let saveItem of saveList.projects) {
             let template = document.getElementById('project-save-card-template');
@@ -121,8 +118,7 @@ export default class SavePage extends BaseHTMLElement {
         
         const container = element.querySelector(".save-page__cards");
         container.appendChild(fragment);
-        //console.log(fragment);
-
+     
         this.shadowRoot.appendChild(element);
     }
 }

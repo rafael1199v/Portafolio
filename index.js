@@ -8,9 +8,9 @@ import AboutMePage from "./blocks/about-me/AboutMePage.js";
 import ProjectPage from "./blocks/projects/ProjectPage.js";
 import SavePage from "./blocks/savePage/SavePage.js";
 import LocalStorage from "./services/LocalStorage.js";
-import SaveService from "./services/SaveService.js";
 import SearchBar from "./blocks/searchBar/SearchBar.js";
 import ProjectDetailPage from "./blocks/ProjectDetails/ProjectDetailsPage.js";
+import SaveButton from "./blocks/saveButton/SaveButton.js";
 
 globalThis.DOM = {};
 globalThis.app = {};

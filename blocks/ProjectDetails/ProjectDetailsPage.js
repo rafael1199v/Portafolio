@@ -8,6 +8,22 @@ export default class ProjectDetailPage extends BaseHTMLElement {
 
     constructor() {
         super();
+        this.toggle = this.toggleSave.bind(this);
+    }
+
+
+    toggleSave(event) {
+        if(event.ctrlKey && event.key === "f") {
+            event.preventDefault();
+
+            console.log(this);
+            const projectId = this.dataset.projectId;
+            const project = ProjectList.getInstance().find(projectId);
+            const command = new Commnad(COMMANDS.SAVE, project);
+            CommandExecutor.execute(command);
+            alert("Proyecto guardado en favoritos");
+                ProjectList.getInstance().saveProject(projectId);
+        }
     }
 
     async connectedCallback() {
@@ -23,21 +39,14 @@ export default class ProjectDetailPage extends BaseHTMLElement {
         projectTitle.textContent = project.title;
         projectDescription.textContent = project.content;
 
-        document.addEventListener("keydown", (event) => {
-            if(event.ctrlKey && event.key === "f" ) {
-            event.preventDefault();
-
-            console.log(this);
-            const projectId = this.dataset.projectId;
-            const project = ProjectList.getInstance().find(projectId);
-            const command = new Commnad(COMMANDS.SAVE, project);
-            CommandExecutor.execute(command);
-            alert("Proyecto guardado en favoritos");
-                ProjectList.getInstance().saveProject(projectId);
-            }
-        });
+        document.addEventListener("keydown", this.toggle);
 
         this.shadowRoot.appendChild(blockElement);
+    }
+
+
+    disconnectedCallback() {
+        document.removeEventListener("keydown", this.toggle);
     }
 
 }
