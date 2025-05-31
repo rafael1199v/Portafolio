@@ -8,7 +8,6 @@ export default class SavePage extends BaseHTMLElement {
     constructor() {
         super();
 
-
         this.firstRender = true;
     }
 
@@ -43,10 +42,10 @@ export default class SavePage extends BaseHTMLElement {
         let cardSave = templateSave.content.cloneNode(true).firstElementChild;
 
         if(saveList.searchItem) {
-            let imgSave = cardSave.querySelector(".projects__card-image");
-            let titleSave = cardSave.querySelector(".projects__card-title");
-            let paragraphSave = cardSave.querySelector(".projects__card-paragraph");
-            let linkSave = cardSave.querySelector(".projects__card-button");
+            let imgSave = cardSave.querySelector(".projects-save__card-image");
+            let titleSave = cardSave.querySelector(".projects-save__card-title");
+            let paragraphSave = cardSave.querySelector(".projects-save__card-paragraph");
+            let linkSave = cardSave.querySelector(".projects-save__card-button");
 
             const saveItem = saveList.searchItem;
 
@@ -58,6 +57,11 @@ export default class SavePage extends BaseHTMLElement {
             linkSave.href = saveItem.githubURL;
 
             saveContainer.appendChild(cardSave);
+
+            cardSave.addEventListener("click", () => {
+                app.router.go(`/projects/${saveItem.id}`, true);
+            });
+
         }
         else {
             let cardContainerTitle = element.querySelector(".save-page__card-title-search")
@@ -65,30 +69,35 @@ export default class SavePage extends BaseHTMLElement {
         }
  
         const fragment = new DocumentFragment();
+
         for(let saveItem of saveList.projects) {
             let template = document.getElementById('project-save-card-template');
             let card = template.content.cloneNode(true).firstElementChild;
           
-            let img = card.querySelector(".projects__card-image");
-            let title = card.querySelector(".projects__card-title");
-            let paragraph = card.querySelector(".projects__card-paragraph");
-            let link = card.querySelector(".projects__card-button");
+            let img = card.querySelector(".projects-save__card-image");
+            let title = card.querySelector(".projects-save__card-title");
+            let paragraph = card.querySelector(".projects-save__card-paragraph");
+            let link = card.querySelector(".projects-save__card-button");
 
             img.src = saveItem.imageURL;
             title.textContent = saveItem.title;
             paragraph.textContent = saveItem.content;
             link.href = saveItem.githubURL;
+            card.dataset.id = saveItem.id;
 
+
+            card.addEventListener("click", () => {
+                app.router.go(`/projects/${saveItem.id}`, true);
+            });
 
             fragment.appendChild(card);
         }
 
-
-        console.log(element);
-        
         const container = element.querySelector(".save-page__cards");
         container.appendChild(fragment);
-     
+
+
+
         this.shadowRoot.appendChild(element);
     }
 }
