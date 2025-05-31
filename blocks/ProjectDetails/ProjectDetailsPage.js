@@ -15,14 +15,13 @@ export default class ProjectDetailPage extends BaseHTMLElement {
     toggleSave(event) {
         if(event.ctrlKey && event.key === "f") {
             event.preventDefault();
-
-            console.log(this);
             const projectId = this.dataset.projectId;
             const project = ProjectList.getInstance().find(projectId);
             const command = new Commnad(COMMANDS.SAVE, project);
             CommandExecutor.execute(command);
+            
             alert("Proyecto guardado en favoritos");
-                ProjectList.getInstance().saveProject(projectId);
+            ProjectList.getInstance().saveProject(projectId);
         }
     }
 

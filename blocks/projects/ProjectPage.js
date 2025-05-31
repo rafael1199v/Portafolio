@@ -51,8 +51,7 @@ export default class ProjectPage extends BaseHTMLElement {
 
 
             card.addEventListener("click", (event) => {
-                console.log("Proyecto", event.target);
-
+             
                 if( event.target.tagName == "svg" ||event.target.tagName == "path" || event.target.tagName == "g" 
                     || event.target.classList.contains("projects__card-heart-content") 
                     || event.target.classList.contains("projects__heart-icon") 
