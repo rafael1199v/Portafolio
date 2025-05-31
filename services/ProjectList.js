@@ -68,19 +68,17 @@ class ProjectList {
         this.notify();
         const command = new Commnad(COMMANDS.SAVE, project);
         CommandExecutor.execute(command);
-        //this.notifySave(project);
+        
     }
 
     unsaveProject(id) {
         const project = this.find(id);
         project.save = "false";
-
-
+        
         const command = new Commnad(COMMANDS.UNSAVE, project);
         CommandExecutor.execute(command);
 
         this.notify();
-        //this.notifyUnsave(id);
     }
 
 

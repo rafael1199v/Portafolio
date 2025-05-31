@@ -1,3 +1,5 @@
+import { observerMixin } from "./Mixins.js";
+
 
 class SaveItemList {
 
@@ -32,8 +34,15 @@ class SaveItemList {
     }
 
     addProject(project) {
+
+        if(this.find(project.id)) {
+            return;
+        }
+
         this.#projects.push(project);
         console.log(this.#projects);
+
+        this.notify();
     }
 
 
@@ -43,6 +52,7 @@ class SaveItemList {
         this.#projects = array;
 
         console.log(this.#projects);
+        this.notify();
     }
 
     findByTitle(title) {
@@ -56,6 +66,15 @@ class SaveItemList {
     }
 
 
+    setProjects(projects) {
+        this.#projects = projects;
+    }
+
+
 }
+Object.assign(SaveItemList.prototype, observerMixin);
 
 export default SaveItemList;
+
+
+

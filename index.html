@@ -321,12 +321,13 @@
       <div class="save-page">
         <h1>Save Projects</h1>
         <search-bar></search-bar>
-        <div class="save-page__card-container save-page__card-container--hidden">
-          <h3>Items encontrado</h3>
+        <div class="save-page__card-container">
+          <h3 class="save-page__card-title-search">Resultado de la busqueda</h3>
           <div class="save-page__card-item">
 
           </div>
         </div>
+        <h3 class="save-page__card-title">Items guardados</h3>
         <div class="save-page__cards"></div>
         
       </div>
@@ -365,5 +366,18 @@
     <template id="search-bar-template">
       <input type="text" class="search-bar">
     </template>
+
+
+    <template id="project-details-id">
+      <section class="project-details-page">
+        <h1 class="project-details-page__title">Detalles del proyecto</h1>
+        <div class="project-details-page__content">
+            <h3 class="project-details-page__name"></h3>
+            <p class="project-details-page__description"></p>
+        </div>
+      </section>
+    </template>
+
+
   </body>
 </html>

@@ -10,11 +10,16 @@ import SavePage from "./blocks/savePage/SavePage.js";
 import LocalStorage from "./services/LocalStorage.js";
 import SaveService from "./services/SaveService.js";
 import SearchBar from "./blocks/searchBar/SearchBar.js";
+import ProjectDetailPage from "./blocks/ProjectDetails/ProjectDetailsPage.js";
 
 globalThis.DOM = {};
+globalThis.app = {};
+
+app.router = Router;
 
 window.addEventListener("DOMContentLoaded", async () => {
     await LocalStorage.loadProjects();
+    await LocalStorage.loadSavedItemList();
     Router.init();
 });
 

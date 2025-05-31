@@ -43,12 +43,27 @@ export default class ProjectPage extends BaseHTMLElement {
             link.href = project.githubURL;
             likesCounter.textContent = project.likes;
 
-
             if(project.save == "true")
                 saveIcon.classList.add("projects__save-icon--save")
 
             if(project.like == "true")
                 heartIcon.classList.add("projects__heart-icon--liked")
+
+
+            card.addEventListener("click", (event) => {
+                console.log("Proyecto", event.target);
+
+                if( event.target.tagName == "svg" ||event.target.tagName == "path" || event.target.tagName == "g" 
+                    || event.target.classList.contains("projects__card-heart-content") 
+                    || event.target.classList.contains("projects__heart-icon") 
+                    || event.target.classList.contains("projects__card-heart")
+                    || event.target.classList.contains("projects__card-save")) {
+                    return;
+                }
+
+                app.router.go(`/projects/${project.id}`, true);
+            });
+
 
             this.addListeners(heartIcon, saveIcon);
 

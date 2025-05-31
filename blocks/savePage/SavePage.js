@@ -18,14 +18,13 @@ export default class SavePage extends BaseHTMLElement {
 
         const saveList = SaveItemList.getInstance();
 
-
-        if(saveList.searchItem) {
-            const containerCard = element.querySelector("save-page__card-container");
-            containerCard.classList.remove("save-page__card-container--hidden");
-        }
+        const containerCard = element.querySelector(".save-page__card-container");
+        let cardContainerTitle = containerCard.querySelector(".save-page__card-title-search")
+        cardContainerTitle.hidden = true;
         
         console.log(saveList.projects);
-
+        console.log(saveList.searchItem);
+        
         const fragment = new DocumentFragment();
         for(let saveItem of saveList.projects) {
             let template = document.getElementById('project-save-card-template');
@@ -52,7 +51,8 @@ export default class SavePage extends BaseHTMLElement {
         container.appendChild(fragment);
 
         this.addEventListener("search", (event) => {
-            this.render();
+            cardContainerTitle.hidden = false;
+            this.render();  
         })
 
         this.shadowRoot.appendChild(element);
@@ -69,14 +69,10 @@ export default class SavePage extends BaseHTMLElement {
 
         const saveList = SaveItemList.getInstance();
 
+        let templateSave = document.getElementById('project-save-card-template');
+        let cardSave = templateSave.content.cloneNode(true).firstElementChild;
 
         if(saveList.searchItem) {
-            const containerCard = element.querySelector(".save-page__card-container");
-            containerCard.classList.remove("save-page__card-container--hidden");
-
-            let templateSave = document.getElementById('project-save-card-template');
-            let cardSave = templateSave.content.cloneNode(true).firstElementChild;
-
             let imgSave = cardSave.querySelector(".projects__card-image");
             let titleSave = cardSave.querySelector(".projects__card-title");
             let paragraphSave = cardSave.querySelector(".projects__card-paragraph");
@@ -94,7 +90,8 @@ export default class SavePage extends BaseHTMLElement {
             saveContainer.appendChild(cardSave);
         }
         else {
-
+            let cardContainerTitle = element.querySelector(".save-page__card-title-search")
+            cardContainerTitle.textContent = "No hay resultados para tu búsqueda";
         }
  
         
