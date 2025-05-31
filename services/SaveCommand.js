@@ -35,7 +35,6 @@ export const CommandExecutor = {
                 saveList.setSearchItem(searched);
                 break;
             case COMMANDS.FOCUS_SEARCH:
-                console.log(command.args);
                 command.args.focus();
                 break;
             default:

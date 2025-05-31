@@ -40,7 +40,6 @@ class SaveItemList {
         }
 
         this.#projects.push(project);
-        console.log(this.#projects);
 
         this.notify();
     }
@@ -51,7 +50,6 @@ class SaveItemList {
         const array = this.#projects.filter(project => project.id != id);
         this.#projects = array;
 
-        console.log(this.#projects);
         this.notify();
     }
 

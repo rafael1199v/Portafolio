@@ -48,7 +48,6 @@ const Router = {
                     pageElement = document.createElement("project-details-page");
                     const paramId = route.substring(route.lastIndexOf("/") + 1);
 
-                    console.log(pageElement);
                     pageElement.dataset.projectId = paramId;
                 }
                 break;

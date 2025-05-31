@@ -11,7 +11,6 @@ export default class SearchBar extends BaseHTMLElement {
         const element = template.content.cloneNode(true).firstElementChild;
 
         const searchBar = element;
-        console.log(searchBar);
         this.shadowRoot.appendChild(element);
 
 
