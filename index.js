@@ -1,4 +1,4 @@
-import APIProject from "./services/apiProject.js";
+import APIProject from "./services/ApiProject.js";
 import ProjectList from "./services/ProjectList.js";
 
 globalThis.DOM = {};
