@@ -40,10 +40,10 @@
 }
 
 .projects__card-image {
-    object-fit: contain;
+    object-fit: cover;
     max-width: 100%;
     width: 100%;
-    object-fit: fill;
+    height: 45%;
 }
 
 .projects__card-content {
